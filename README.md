@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+🎬 Movies Explorer App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A beautiful React Native + Expo application for browsing and searching movies using the TMDB API.
 
-## Get started
+Built with:
 
-1. Install dependencies
+Expo + React Native
 
-   ```bash
-   npm install
-   ```
+TypeScript
 
-2. Start the app
+TailwindCSS (NativeWind)
 
-   ```bash
-   npx expo start
-   ```
+Custom Hooks (useFetch)
 
-In the output, you'll find options to open the app in a
+TMDB API
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Expo Router (file-based routing)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+🚀 Features
+🔍 Search Movies
 
-## Get a fresh project
+Live movie search
 
-When you're ready, run:
+Debounced input (500ms)
 
-```bash
-npm run reset-project
-```
+Shows "No movies found for 'query'" when empty results
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+🎞 Movie List
 
-## Learn more
+3-column movie grid
 
-To learn more about developing your project with Expo, look at the following resources:
+Posters, title, and rating
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Smooth, fast UI
 
-## Join the community
+🎨 UI & UX
 
-Join our community of developers creating universal apps.
+Background hero image
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Custom search bar
+
+Clean, minimal responsive layout
+
+⚙️ Code Architecture
+
+services/api.ts → TMDB API calls
+
+services/useFetch.ts → Custom fetch hook
+
+Reusable UI components (MoveCard, SearchBar)
+
+📦 Installation
+1️⃣ Install dependencies
+npm install
+
+2️⃣ Start the app
+npx expo start
