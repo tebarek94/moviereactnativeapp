@@ -3,6 +3,7 @@ import SearchBar from "@/components/searchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovie } from "@/services/api";
+import { updateSerachCount } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import React, { useEffect } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
@@ -21,13 +22,19 @@ const Search = () => {
   useEffect(() => {
     const timeOutid = setTimeout(async () => {
       if (searchQuery.trim()) {
-        await refetch();
+        // Get the fetched movies directly from refetch
+        const fetchedMovies = await refetch();
+
+        // Save search count if movies exist
+        if (Array.isArray(fetchedMovies) && fetchedMovies.length > 0) {
+          const firstMovie = fetchedMovies[0];
+          await updateSerachCount(searchQuery, firstMovie);
+        }
       } else {
         reset();
       }
     }, 500);
 
-    // FIXED cleanup
     return () => clearTimeout(timeOutid);
   }, [searchQuery]);
 
@@ -90,7 +97,6 @@ const Search = () => {
                 </Text>
               )}
 
-              {/* NEW: message for no results */}
               {noResults && (
                 <Text className="text-white text-center mt-3">
                   No movies found for {searchQuery}
